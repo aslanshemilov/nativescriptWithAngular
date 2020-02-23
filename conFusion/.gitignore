@@ -2,6 +2,13 @@
 hooks/
 node_modules/
 platforms/
+tags
+**/*.js.map
+**/*.metadata.json
+
+app/**/*.js
+app/global.d.tags
+platforms
 
 # NativeScript Template
 *.js.map
