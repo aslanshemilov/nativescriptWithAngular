@@ -10,10 +10,10 @@ import { ContactComponent } from "./contact/contact.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
-    { path: "about", component: AboutComponent},
+    { path: "aboutus", component: AboutComponent},
     { path: "menu", component: MenuComponent },
     { path: 'dishdetail/:id', component: DishdetailComponent },
-    { path: 'contact', component: ContactComponent}
+    { path: 'contactus', component: ContactComponent}
 ];
 
 @NgModule({
