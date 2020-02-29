@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NativeScriptUISideDrawerModule } from 'nativescript-telerik-ui/sidedrawer/angular';
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
+import { FavoriteService } from './services/favorite.service';
 
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DrawerComponent } from './shared/drawer/drawer.component';
@@ -51,6 +52,7 @@ import { AboutComponent } from "./about/about.component";
         DishService,
         PromotionService,
         LeaderService,
+        FavoriteService,
         ProcessHTTPMsgService,
         { provide: 'BaseURL', useValue: baseURL }
     ],
