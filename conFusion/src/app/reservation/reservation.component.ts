@@ -1,7 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
 import { TextField } from 'ui/text-field';
 import { Switch } from 'ui/switch';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ModalDialogService, ModalDialogOptions, ModalDialogParams } from 'nativescript-angular/modal-dialog';
+import { RservationModalComponent, ReservationModalComponent } from "../reservationmodal/reservationmodal.component";
 
 @Component({
     selector: 'app-reservation',
@@ -11,7 +13,9 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ReservationComponent implements OnInit {
     reservation: FormGroup;
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder,
+        private modalService: ModalDialogService,
+        private vcRef: ViewContainerRef) {
         this.reservation = this.formBuilder.group({
             guests: 3,
             smoking: false,
@@ -20,6 +24,23 @@ export class ReservationComponent implements OnInit {
     }
 
     ngOnInit() { }
+
+    createModalView(args) {
+        let options: ModalDialogOptions = {
+            viewContainerRef: this.vcRef,
+            context: args,
+            fullscreen: false
+        };
+
+        this.modalService.showModal(ReservationModalComponent, options)
+            .then((result: any) => {
+                if (args === "guest") {
+                    this.reservation.patchValue({guests: result});
+                } else if (args === "date-time") {
+                    this.reservation.patchValue({ dateTime: result });
+                }
+            })
+    }
 
     onSmokingChecked(args) {
         let smokingSwitch = <Switch>args.object;
