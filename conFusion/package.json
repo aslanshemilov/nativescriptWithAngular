@@ -27,6 +27,7 @@
     "nativescript-ngx-fonticon": "^4.2.0",
     "nativescript-telerik-ui": "^3.1.4",
     "nativescript-toasty": "^1.1.5",
+    "ngx-ui-switch": "^9.0.0-beta.3",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
     "tns-core-modules": "~6.4.0",
