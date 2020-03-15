@@ -21,7 +21,7 @@ export class ReservationComponent implements OnInit {
     showSubmission: boolean = false;
     formView: View;
     submissionView: View;
-    reservationSubmission: any;
+    reservationSubmission: Reservation;
     reservations: Reservation[];
     docId: string = 'reservations';
 
@@ -54,7 +54,7 @@ export class ReservationComponent implements OnInit {
         this.modalService.showModal(ReservationModalComponent, options)
             .then((result: any) => {
                 if (args === "guest") {
-                    this.reservation.patchValue({guests: result});
+                    this.reservation.patchValue({ guests: result});
                 } else if (args === "date-time") {
                     this.reservation.patchValue({ dateTime: result });
                 }
